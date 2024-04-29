@@ -1,0 +1,88 @@
+doctype html
+html
+  head
+    title Video Dashboard
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+      .container {
+        max-width: 2000px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .title {
+        text-align: center;
+        font-size: 24px;
+        margin: 5px 350px 20px ;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #17202A;
+        color: white;
+      }
+      .add-video {
+        position: absolute;
+        font-size: 20px;
+        top: 30px;
+        right: 60px;
+        padding: 10px 25px;
+        background-color: #007BFF;
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+      }
+      .add-video:hover {
+        background-color: #0056b3;
+      }
+      .videos-grid {
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      .video {
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        background-color: white;
+      }
+      .video-title {
+        font-size: 18px;
+        margin: 10px 0;
+        padding: 10px;
+      }
+      .video-title h2 {
+        margin: 0;
+        padding: 0;
+      }
+      .view-more{
+        display: inline-block;
+        width: 100px;
+        margin-top: 10px;
+        padding: 5px 10px;
+        font-size: 14px;
+        background-color: #007BFF;
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .view-more:hover {
+        background-color: #0056b3;
+      }
+body
+  div.container
+    h1.title Recent Favorites
+    a.add-video(href="/video/add") Add New Video
+    div.videos-grid
+      each video in videos
+        div.video
+          if /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/.test(video.url)
+            iframe(width='100%', height='315', src='https://www.youtube.com/embed/' + video.url.split('v=')[1].split('&')[0], frameborder='0', allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture', allowfullscreen)
+          else
+            p This video cannot be displayed because the URL is not a valid YouTube URL.
+          div.video-title
+            h2 #{video.title}
+            a.view-more(href=`/video/${video.id}`) View More

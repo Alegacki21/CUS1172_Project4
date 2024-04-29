@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title #{video.title}
+    style.
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        text-align: center;
+      }
+      .content-container {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid #ddd;
+      }
+      iframe {
+        width: 560px;
+        height: 315px;
+      }
+  body
+    div.container
+      div.content-container
+        iframe(src='https://www.youtube.com/embed/' + video.url.split('v=')[1].split('&')[0] frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
+        h1.title #{video.title}
+        p.description #{video.description}
+        p.uploader Uploaded by #{video.userEmail}

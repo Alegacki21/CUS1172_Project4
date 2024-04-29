@@ -1,0 +1,62 @@
+doctype html
+html
+  head
+    title Add New Video
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      h1 {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      form {
+        background-color: white;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        padding: 40px;
+      }
+      label {
+        font-weight: bold;
+      }
+      input, textarea {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      textarea {
+        resize: none;
+      }
+      button {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+  body
+    div.container
+      h1 Add New Video
+      form(action="/video/add" method="post")
+        label(for="title") Title
+        input(type="text" id="title" name="title" required)
+        label(for="url") URL
+        input(type="url" id="url" name="url" required)
+        label(for="description") Description
+        textarea(id="description" name="description" rows="4" cols="50")
+        button(type="submit") Add Video
