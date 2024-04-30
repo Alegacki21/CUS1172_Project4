@@ -1,8 +1,8 @@
 const express = require("express");
 const session = require("express-session");
-const authRoutes = require("../routes/authRoutes");
-const videoRoutes = require("../routes/videoRoutes");
-const userData = require("../userData");
+const authRoutes = require("./routes/authRoutes");
+const videoRoutes = require("./routes/videoRoutes");
+const userData = require("./userData");
 const fs = require("fs");
 const app = express();
 
