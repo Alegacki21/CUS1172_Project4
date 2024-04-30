@@ -6,7 +6,7 @@
     "uuid": "^9.0.1"
   },
   "scripts": {
-    "start": "server.js"
+    "start": "node server.js"
   },
   "engines": {
     "node": "14.x"
